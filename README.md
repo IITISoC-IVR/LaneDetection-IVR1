@@ -59,7 +59,38 @@ We carefully curated and tested several state-of-the-art deep learning models fo
 <li> <strong>3 CNN Models </strong> : We explored three different CNN architectures that we found through YouTube and GitHub. These models were chosen for their effectiveness in image analysis tasks and had demonstrated promising results in lane detection scenarios. </li>
 <br>
   
-<li> <strong>YOLOP and YOLOPv2 </strong> : We experimented with YOLOP and its upgraded version, YOLOPv2, which are well-known for their real-time object detection capabilities. We adapted these models for lane detection and evaluated their performance.</li>
+<li> <strong>YOLOP and YOLOPv2 </strong> : We experimented with YOLOP and its upgraded version, YOLOPv2, which are well-known for their real-time object detection capabilities. We adapted these models for lane detection and evaluated their performance.
+    A summarized architecture description for the YOLO-based network :
+<ul>
+  <li>
+     Encoder 
+    <hr>
+    The network has a shared encoder consisting of: 
+    <ul>
+      <li>
+        Backbone: CSPDarknet, a classic image classification network known for its excellent performance in object detection. It ensures real-time performance and feature propagation.
+      </li>
+      <li>
+        Neck: Composed of Spatial Pyramid Pooling (SPP) and Feature Pyramid Network (FPN) modules, which fuse features from different scales and semantic levels using concatenation.
+      </li>
+    </ul>
+  </li>
+  <li>
+    Decoder
+    <hr>
+    The network has three specific decoders for different tasks:
+    <ul>
+      <li>
+        Detect Head: Utilizes a multi-scale detection scheme with PAN (Path Aggregation Network) for better feature fusion. It predicts object positions, scales, category probabilities, and confidence.
+      </li>
+      <li>
+        Drivable Area Segment Head & Lane Line Segment Head: Both use the same network structure and rely on the bottom layer of FPN for segmentation. The output feature map is restored to the input size using upsampling, with no extra SPP module. Nearest 
+        Interpolation is used for upsampling, resulting in fast and precise output.
+      </li>
+    </ul>
+  </li>
+</ul>
+</li>
 <br>
 <li> <strong> HybridNets </strong> : HybridNets is a popular deep learning architecture specifically designed for lane detection. We examined its performance and capabilities for detecting complex lane geometries.</li>
 <br>
