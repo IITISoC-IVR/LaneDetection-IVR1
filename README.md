@@ -18,7 +18,7 @@ Members:
 - [Bhawna Chaudhary](https://github.com/WebWizard104)
 - [Arjun S Nair](https://github.com/arjun-593)
 - [AMPADY B R](https://github.com/ampady06)
-- [Aditya Singh](https://github.com/AdityaSingh1199)
+  
 
 ### Outline :
 This repository contains the implementation of a lane detection system using two different approaches. The main goal of this project was to understand the core fundamentals of lane detection in images. The two approaches utilized are as follows:
