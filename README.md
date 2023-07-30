@@ -92,7 +92,58 @@ We carefully curated and tested several state-of-the-art deep learning models fo
 </ul>
 </li>
 <br>
-<li> <strong> HybridNets </strong> : HybridNets is a popular deep learning architecture specifically designed for lane detection. We examined its performance and capabilities for detecting complex lane geometries.</li>
+<li> <strong> HybridNets </strong> : HybridNets is a popular deep learning architecture specifically designed for lane detection. We examined its performance and capabilities for detecting complex lane geometries.summarized model architecture for HybridNets :
+<ul>
+  <li>
+    Encoder
+    <hr>
+    <ul>
+      <li>
+        Backbone: EfficientNet-B3, which efficiently extracts features and reduces computational cost through neural architecture search.
+      </li>
+      <li>
+        Neck: BiFPN module based on EfficientDet, enabling bidirectional feature fusion at different resolutions through cross-scale connections.
+      </li>
+    </ul>
+  </li>
+  <li>
+    Decoder
+    <hr>
+    <ul>
+      <li>
+        Detection Head:
+        <ul>
+          <li>
+            Prior anchors: Each grid in the multi-scale fusion feature maps from the Neck network is assigned nine prior anchors with different aspect ratios, determined using k-means clustering.
+          </li>
+          <li>
+            Prediction: The detection head predicts the bounding box offsets, class probabilities, and confidence scores.
+          </li>
+        </ul>
+      </li>
+        <li>
+          Segmentation Head:
+          <ul>
+            <li>
+              Classes: There are 3 classes for output - background, drivable area, and lane line.
+            </li>
+            <li>
+              Feature levels: Utilizes 5 feature levels {𝑃3, …, 𝑃7} from the Neck network to the segmentation branch.
+            </li>
+            <li>
+              Upsampling: Each level is upsampled to have the same output feature map size (W/4, H/4, 64).
+            </li>
+            <li>
+              Feature fusion: The upsampled levels are combined using summation for better feature fusion.
+            </li>
+            <li>
+              Output: The final output feature map is of size (W, H, 3) representing the probability of each pixel's class.
+            </li>
+          </ul>
+        </li>
+    
+</ul>
+</li>
 <br>
 <li> <strong>LSTR(Lane Shape Transformer) </strong> : While the Transformer-based model LSTR showed impressive frames per second (fps) performance, we found that its detection results did not meet our expectation.In this Transformer-based lane detection architecture, the model consists of several key components:
   <hr>
