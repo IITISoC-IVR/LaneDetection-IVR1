@@ -263,7 +263,7 @@ During our comprehensive testing, we considered multiple deep learning architect
     </tr>
     <tr>
       <td> <strong> YOLOPv2 </strong></td>
-      <td> 48.64 </td>
+      <td> 38.64 </td>
       <td> 38,955 </td>
       <td> 0.87 </td>
       <td> 0.27 </td>
@@ -283,8 +283,9 @@ During our comprehensive testing, we considered multiple deep learning architect
 </table>
 
 <strong> Graphical representation of comparison of models </strong>
+![graphical_comparison](https://github.com/WebWizard104/LaneDetection-IVR1/assets/117708050/521c57b5-7b5d-4894-a44e-14d98b9c4730)
 
-![graphical_comparison](https://github.com/IVDC-Club-IIT-Indore/IITISoC-23-IVR1-LaneDetection-using-LimitedComputationPower/assets/117708050/50e9b6fe-977e-4376-9b4f-5908e4b82f7a)
+
 
 
 
