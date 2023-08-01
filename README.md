@@ -264,7 +264,7 @@ During our comprehensive testing, we considered multiple deep learning architect
     <tr>
       <td> <strong> YOLOPv2 </strong></td>
       <td> 38.64 </td>
-      <td> 38,955 </td>
+      <td> 154,660 </td>
       <td> 0.87 </td>
       <td> 0.27 </td>
       <td> 0.93 </td>
